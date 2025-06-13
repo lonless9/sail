@@ -1,4 +1,5 @@
 pub mod array;
+pub mod bitwise;
 pub mod collection;
 pub mod datetime;
 pub mod drop_struct_field;

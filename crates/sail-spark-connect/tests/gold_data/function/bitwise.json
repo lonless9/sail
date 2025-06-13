@@ -85,7 +85,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: bit_count"
+        "success": "ok"
       }
     },
     {
