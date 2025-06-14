@@ -217,7 +217,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: shiftrightunsigned"
+        "success": "ok"
       }
     },
     {
