@@ -107,7 +107,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: bit_get"
+        "success": "ok"
       }
     },
     {
@@ -129,7 +129,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: bit_get"
+        "success": "ok"
       }
     },
     {
@@ -151,7 +151,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: getbit"
+        "success": "ok"
       }
     },
     {
@@ -173,7 +173,7 @@
         }
       },
       "output": {
-        "failure": "not implemented: function: getbit"
+        "success": "ok"
       }
     },
     {
