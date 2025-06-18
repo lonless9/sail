@@ -50,6 +50,7 @@ use sail_plan::extension::function::array::spark_map_to_array::MapToArray;
 use sail_plan::extension::function::array::spark_sequence::SparkSequence;
 use sail_plan::extension::function::bitwise::bit_count::BitCount;
 use sail_plan::extension::function::bitwise::bit_get::BitGet;
+use sail_plan::extension::function::bitwise::bit_not::BitNot;
 use sail_plan::extension::function::bitwise::shift_right_unsigned::ShiftRightUnsigned;
 use sail_plan::extension::function::collection::spark_concat::SparkConcat;
 use sail_plan::extension::function::collection::spark_reverse::SparkReverse;
@@ -755,6 +756,7 @@ impl PhysicalExtensionCodec for RemoteExecutionCodec {
             "array_max" => Ok(Arc::new(ScalarUDF::from(ArrayMax::new()))),
             "bit_count" => Ok(Arc::new(ScalarUDF::from(BitCount::new()))),
             "bit_get" | "getbit" => Ok(Arc::new(ScalarUDF::from(BitGet::new()))),
+            "~" => Ok(Arc::new(ScalarUDF::from(BitNot::new()))),
             "shiftrightunsigned" => Ok(Arc::new(ScalarUDF::from(ShiftRightUnsigned::new()))),
             "greatest" => Ok(Arc::new(ScalarUDF::from(Greatest::new()))),
             "least" => Ok(Arc::new(ScalarUDF::from(Least::new()))),
@@ -848,6 +850,7 @@ impl PhysicalExtensionCodec for RemoteExecutionCodec {
             || node.inner().as_any().is::<ArrayMax>()
             || node.inner().as_any().is::<BitCount>()
             || node.inner().as_any().is::<BitGet>()
+            || node.inner().as_any().is::<BitNot>()
             || node.inner().as_any().is::<ShiftRightUnsigned>()
             || node.inner().as_any().is::<Greatest>()
             || node.inner().as_any().is::<Least>()

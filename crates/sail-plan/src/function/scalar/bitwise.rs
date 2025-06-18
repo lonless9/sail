@@ -2,6 +2,7 @@ use datafusion_expr::Operator;
 
 use crate::extension::function::bitwise::bit_count::BitCount;
 use crate::extension::function::bitwise::bit_get::BitGet;
+use crate::extension::function::bitwise::bit_not::BitNot;
 use crate::extension::function::bitwise::shift_right_unsigned::ShiftRightUnsigned;
 use crate::function::common::ScalarFunction;
 
@@ -18,6 +19,6 @@ pub(super) fn list_built_in_bitwise_functions() -> Vec<(&'static str, ScalarFunc
         ("shiftright", F::binary_op(Operator::BitwiseShiftRight)),
         ("shiftrightunsigned", F::udf(ShiftRightUnsigned::new())),
         ("|", F::binary_op(Operator::BitwiseOr)),
-        ("~", F::unknown("~")),
+        ("~", F::udf(BitNot::new())),
     ]
 }
